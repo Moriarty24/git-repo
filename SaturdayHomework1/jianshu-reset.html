@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/jianshu-reset.css">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div id="logo" class="logo">
+        <img src="img/logo.png" alt="">
+    </div>
+
+    <div class="all">
+        <h4>用手机号重置密码</h4>
+        <form action="">
+            <div class="phone">
+                <div class="phoneqz" v-on:click="qzClick">
+                    <img class="phoneimg" src="img/shouji.png" alt="">
+                    +86
+                    <img class="downimg" src="img/down.png" alt="">
+                </div>
+                <div class="pnum">
+                    <input type="text" class="phonenum" id="phonenum" placeholder="手机号">
+                </div>
+                <div id="ycn" class="ycn">
+                    <div class="baoNum" v-bind:style="numStyle">
+                        <p class="ycnum" v-for="ycNum in ycNumArr">{{ycNum}}</p>
+                    </div>
+
+                    <div class="baoName" v-bind:style="numStyle">
+                        <p class="ycname" v-for="ycName in ycNameArr">{{ycName}}</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="dxyzm">
+                <img src="img/safe.png" alt="">
+                <input type="text" class="newsyzm" placeholder="短信验证码">
+                <input class="sendyzm" id="sendyzm" type="submit" value="发送验证码">
+            </div>
+
+            <div class="pw">
+                <img src="img/password.png" alt="">
+                <input type="password" class="password" placeholder="请输入新密码">
+            </div>
+
+            <div class="qrpw">
+                <img src="img/password.png" alt="">
+                <input type="password" class="qrpassword" placeholder="请再输入一遍新密码">
+            </div>
+
+
+            <input class="btn" id="btn" type="submit" value="重置密码">
+        </form>
+
+        <div class="back">
+            <img src="img/back.png" alt="">
+            返回登录注册
+        </div>
+    </div>
+</div>
+</body>
+<script type="application/javascript">
+    new Vue({
+        el: '#wrap',
+        data: {
+            ycNumArr:[
+                "+61",
+                "+33",
+                "+49",
+                "+55",
+            ],
+            ycNameArr: [
+                "澳大利亚",
+                "法国",
+                "德国",
+                "日本"
+            ],
+            count:0,
+            numStyle: {
+                display: ''
+            }
+        },
+        methods: {
+          qzClick: function () {
+              this.count ++;
+              if (this.count % 2 == 0){
+                  this.numStyle.display = "none";
+              }else {
+                  this.numStyle.display = "block";
+              }
+          }
+        }
+    })
+
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/jianshu.css">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+
+</head>
+<body>
+<!--769样式改变-->
+<div id="wrap">
+    <div id="logo" class="logo">
+        <img src="img/logo.png" alt="">
+    </div>
+
+
+    <div id="login" class="login">
+        <div class="logname">
+            <a href="jianshu-log.html" class="loglink">登录</a>
+            <b>·</b>
+            <a href="jianshu-reg.html" class="reglink">注册</a>
+        </div>
+
+        <div class="logbox">
+            <form action="">
+                <div class="user">
+                    <img src="img/user.png" alt="">
+                    <input type="text" id="username" class="username" placeholder="手机号或邮箱" v-model="username">
+                </div>
+                <div class="pw">
+                    <img src="img/password.png" alt="">
+                    <input type="password" id="password" class="password" placeholder="密码" v-model="password">
+                </div>
+
+                <div class="yzm">
+                    <img class="btny" src="img/btny.png" alt="">
+                    点击按钮进行验证
+                    <img class="btnr" src="img/btnr.png" alt="">
+                </div>
+
+                <div class="remember">
+                    <input type="checkbox" name="checkbox" id="checkbox" value="" />
+                    <span>记住我</span>
+                </div>
+
+                <div class="forget">
+                    <a href="jianshu-reset.html">登录遇到问题？</a>
+                </div>
+
+                <input class="btn" id="btn" type="submit" value="登录" v-on:click="login">
+            </form>
+        </div>
+        <h6>社交账号登录</h6>
+
+        <ul>
+            <li class="wb">
+                <img src="img/blogs.png"/>
+            </li>
+
+            <li>
+                <img src="img/wechat.png"/>
+            </li>
+
+            <li>
+                <img src="img/QQs.png"/>
+            </li>
+
+            <li class="qt">
+
+                其它
+
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script type="application/javascript">
+    var vm = new Vue({
+        el: '#wrap',
+        data:{
+            username:'',
+            password:''
+        },
+        methods: {
+            login:function () {
+                if (this.username != "" && this.password != ""){
+                    alert("账号为："+this.username+",密码为："+this.password);
+                }else {
+                    alert("请输入完整的用户信息");
+                }
+            }
+        }
+
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #f1f1f1;
+}
+
+.logo{
+    width: 100px;
+    height: 47px;
+    position: absolute;
+    top: 56px;
+    margin-left: 50px;
+
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.all{
+    width: 300px;
+    height: 370px;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 5px;
+    margin-top: 60px;
+    box-shadow: 0px 0px 5px 3px rgba(236,236,236,1);
+    padding:50px;
+}
+
+h4{
+    width: 300px;
+    font-size: 18px;
+    line-height: 39px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.all form{
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.phone{
+    width: 298px;
+    height: 50px;
+    border: 1px solid #C8C8C8;
+    /*overflow: hidden;*/
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #f8f8f8;
+
+
+}
+
+
+.ycn{
+    width: 300px;
+    position: relative;
+
+    /*display: none;*/
+
+}
+
+.baoNum{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100px;
+    float: left;
+    z-index: 999;
+    background-color: white;
+    border: 1px solid grey;
+    border-right: none;
+    display: none;
+}
+
+.baoName{
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    width: 198px;
+    overflow: hidden;
+    z-index: 999;
+    background-color: white;
+    border: 1px solid grey;
+    border-left: none;
+    display: none;
+}
+
+.ycnum{
+    width: 100px;
+    line-height: 20px;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+}
+
+.ycname{
+    width: 200px;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+}
+
+
+
+input::-webkit-input-placeholder{
+    color: #a0a1b4;
+}
+
+
+
+.phoneqz{
+    width: 100px;
+    line-height: 50px;
+    font-size: 14px;
+    border-right: 1px solid #C8C8C8;
+    float: left;
+    position: relative;
+    /*background-color: #0096cc;*/
+}
+
+.phoneimg{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+}
+
+.downimg{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+
+.pnum{
+    width: 190px;
+    height: 50px;
+    float: left;
+    /*background-color: red;*/
+}
+
+.phonenum{
+    width: 170px;
+    float: left;
+    margin-top: 15px;
+    margin-left: 10px;
+    font-size: 15px;
+    background-color:#f8f8f8 ;
+    vertical-align: middle;
+    border: none;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+}
+
+
+.dxyzm,.pw,.qrpw{
+    width: 288px;
+    height: 36px;
+    background-color: #f8f8f8;
+    padding-left: 10px;
+    padding-top: 12px;
+
+}
+
+.dxyzm,.pw{
+    border-left: 1px solid #C8C8C8;
+    border-right:1px solid #C8C8C8;
+    border-bottom:1px solid #C8C8C8;
+}
+
+.qrpw{
+    border-bottom: 1px solid #c8c8c8;
+    border-left: 1px solid #c8c8c8;
+    border-right: 1px solid #c8c8c8;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-bottom: 20px;
+
+}
+
+.dxyzm img,.pw img,.qrpw img{
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    /*margin-top: 16px;*/
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
+.newsyzm,.password,.qrpassword{
+    height: 23px;
+    width: 250px;
+    font-size: 15px;
+    border: none;
+    background-color:#f8f8f8 ;
+    vertical-align: middle;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+
+}
+
+.dxyzm{
+    position: relative;
+    /*display: none;*/
+
+}
+
+.newsyzm{
+    position: relative;
+    z-index: 100;
+    background-color: rgba(0,0,0,0);
+
+
+}
+
+.sendyzm{
+    width: 100px;
+    height: 36px;
+    border-radius: 20px;
+    background-color: #7cc7e2;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: none;
+    color: white;
+    font-size: 14px;
+
+}
+
+.btn{
+    width: 300px;
+    /*height: 42px;*/
+    border-radius: 25px;
+    background-color: #0096cc;
+    border: 1px solid white;
+    font-size: 19px;
+    line-height: 43px;
+    color: white;
+}
+
+.back{
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+    color: #7c7c7c;
+    margin-top: 20px;
+    position: relative;
+
+}
+
+.back img{
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: -1px;
+    left: 80px;
+}
+
+

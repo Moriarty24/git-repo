@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/jianshu-reg.css">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--769样式改变-->
+<div class="wrap" id="wrap">
+
+    <div id="logo" class="logo">
+        <img src="img/logo.png" alt="">
+    </div>
+
+
+    <div id="login" class="login">
+        <div class="logname">
+            <a href="jianshu-log.html" class="loglink">登录</a>
+            <b>·</b>
+            <a href="jianshu-reg.html" class="reglink">注册</a>
+        </div>
+
+        <div class="logbox">
+            <form action="">
+                <div class="user">
+                    <img src="img/user.png" alt="">
+                    <input type="text" id="username" class="username" placeholder="你的昵称" v-model="username">
+                </div>
+                <div class="pe">
+                    <img src="img/shouji.png" alt="">
+                    <input type="text" id="phone" class="phone" placeholder="手机号" v-model="phoneNum" v-on:input="telN">
+                </div>
+
+                <div class="peyzm" v-bind:style="pYzm">
+                    <img src="img/safe.png" alt="">
+                    <input type="text" id="phoneyzm" class="phoneyzm" placeholder="手机验证码" v-model="yzmNum">
+                    <input class="sendyzm" id="sendyzm" type="submit" value="发送验证码" v-bind:style="bColor">
+                </div>
+
+
+
+                <div class="pw">
+                    <img src="img/password.png" alt="">
+                    <input type="password" id="password" class="password" placeholder="设置密码" v-model="password">
+                </div>
+
+                <input class="btn" id="btn" type="submit" value="注册" v-on:click="backLog">
+            </form>
+        </div>
+        <p class="zcsx1">点击 “注册” 即表示您同意并愿意遵守简书</p>
+        <p class="zcsx2"><a href="">用户协议</a> 和 <a href="">隐私政策 </a> 。</p>
+
+
+
+        <h6>社交账号直接注册</h6>
+
+        <ul>
+            <li class="wb">
+                <img src="img/blogs.png"/>
+            </li>
+
+            <li>
+                <img src="img/wechat.png"/>
+            </li>
+
+            <li>
+                <img src="img/QQs.png"/>
+            </li>
+
+        </ul>
+    </div>
+</div>
+</body>
+
+<script type="application/javascript">
+    new Vue({
+        el: "#wrap",
+        data: {
+            username: '',
+            password: '',
+            phoneNum: '',
+            yzmNum: '',
+            bColor: {
+                backgroundColor: '',
+                zIndex: ''
+            },
+            pYzm: {
+                display: ''
+            },
+            isTrue:''
+        },
+
+        methods: {
+            telN: function () {
+                if (this.phoneNum != ""){
+                    this.pYzm.display = "block";
+                    if (this.yzmNum != "" && this.phoneNum.length == 11){
+                        this.bColor.backgroundColor = "#00c148";
+                        this.bColor.zIndex = '101';
+                    }else {
+                        this.bColor.backgroundColor = '';
+                        this.bColor.zIndex = '';
+                    }
+//
+                }
+            },
+
+            backLog: function () {
+                if (this.username != "" && this.password != "" && this.phoneNum != "" && this.yzmNum != "" && this.phoneNum.length == 11){
+                      alert("注册成功！");
+                }else {
+                    alert("请输入全部注册信息");
+                }
+            }
+        }
+
+    })
+
+</script>
+</html>
