@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.top{
+    width: 500px;
+    background-color: #5796b5;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.top div{
+    width: 25px;
+    height: 25px;
+    float: left;
+    padding: 5px;
+    background-color: #3b80aa;
+
+}
+
+.grade{
+    margin-left: 410px;
+    margin-right: 10px;
+}
+
+.top div img{
+    width: 25px;
+    height: 25px;
+}
+
+
+/*内容部分*/
+
+
+.pic{
+    margin: 0 auto;
+    width: 460px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.pic img{
+    width: 228px;
+    height: 200px;
+}
+
+.pic0,.pic2,.pic4{
+    margin-right: 2px;
+}
+
+.pic1,.pic3,.pic5{
+    margin-left: 2px;
+}
+
+/*内容部分*/
+
+
+
+
+.news{
+    width: 440px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+
+}
+
+.newsAll{
+    width: 440px;
+    border-bottom: 1px solid #e3e3e3;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.newsAll img{
+    width: 150px;
+    height: 150px;
+
+
+}
+
+.imgNum{
+    margin-right: 20px;
+}
+
+.newsAll a{
+    display: inline-block;
+    float: left;
+    text-decoration: none;
+
+
+}
+
+.newsAll p{
+    float: left;
+    width: 250px;
+    font-size: 14px;
+    color: black;
+}
+

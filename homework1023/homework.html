@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/homework.css">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="top">
+        <div class="grade" @click="gradeClicked" :style="gradeBg">
+            <img :src="btn1" alt="">
+        </div>
+        <div class="list" @click="listClicked" :style="listBg">
+            <img :src="btn2" alt="">
+        </div>
+
+    </div>
+
+    <!--<div class="pic">-->
+        <!--<a v-for="value,index in pictures" :href="value.url">-->
+            <!--<img :src="value.image" :id="'pic'+index" :class="'pic'+index">-->
+        <!--</a>-->
+    <!--</div>-->
+
+    <div :class="{pic:isPic,news:isNews}">
+        <a v-if="imgIsShow" v-for="value,index in pictures" :href="value.url">
+            <img :src="value.image" :id="'pic'+index" :class="'pic'+index">
+        </a>
+        <div v-if="divIsShow" class="newsAll" v-for="value,index in pictures">
+            <a class="imgNum" :href="value.url">
+                <img :src="value.image" alt="">
+            </a>
+
+            <a :href="value.url">
+                <p v-text="value.title"></p>
+            </a>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            btn1: "img/grade.png",
+            btn2: "img/list.png",
+            isPic: true,
+            isNews: false,
+            imgIsShow: true,
+            divIsShow: false,
+            gradeBg: {
+                backgroundColor: ""
+            },
+            listBg: {
+                backgroundColor: ""
+            },
+            pictures: [{
+                            "title": "What You Need To Know About CSS Variables",
+                            "url": "http://tutorialzine.com/2016/03/what-you-need-to-know-about-css-variables/",
+                            "image": 'https://tutorialzine.com/media/2016/03/css-variables.jpg'
+                        },
+                        {
+                            "title": "Freebie: 4 Great Looking Pricing Tables",
+                            "url": "http://tutorialzine.com/2016/02/freebie-4-great-looking-pricing-tables/",
+                            "image": 'https://tutorialzine.com/media/2016/02/great-looking-pricing-tables.jpg'
+                        },
+                        {
+                            "title": "20 Interesting JavaScript and CSS Libraries for February 2016",
+                            "url": "http://tutorialzine.com/2016/02/20-interesting-javascript-and-css-libraries-for-february-2016/",
+                            "image": 'https://tutorialzine.com/media/2016/02/interesting-resources-february.jpg'
+                        },
+                        {
+                            "title": "Quick Tip: The Easiest Way To Make Responsive Headers",
+                            "url": "http://tutorialzine.com/2016/02/quick-tip-easiest-way-to-make-responsive-headers/",
+                            "image": 'https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png'
+                        },
+                        {
+                            "title": "Learn SQL In 20 Minutes",
+                            "url": "http://tutorialzine.com/2016/01/learn-sql-in-20-minutes/",
+                            "image": 'https://tutorialzine.com/media/2016/01/learn-sql-20-minutes.png'
+                        },
+                        {
+                            "title": "Creating Your First Desktop App With HTML, JS and Electron",
+                            "url": "http://tutorialzine.com/2015/12/creating-your-first-desktop-app-with-html-js-and-electron/",
+                            "image": 'https://tutorialzine.com/media/2015/12/creating-your-first-desktop-app-with-electron.png'
+                        }]
+
+                    },
+
+        methods: {
+            gradeClicked: function () {
+                this.isPic = true;
+                this.isNews = false;
+                this.imgIsShow = true;
+                this.divIsShow = false;
+                this.gradeBg.backgroundColor = "#ba358d";
+                this.listBg.backgroundColor = "";
+
+            },
+
+            listClicked: function () {
+                this.isPic = false;
+                this.isNews = true;
+                this.imgIsShow = false;
+                this.divIsShow = true;
+                this.listBg.backgroundColor = "#ba358d";
+                this.gradeBg.backgroundColor = "";
+
+            }
+        }
+    })
+</script>
+</html>
