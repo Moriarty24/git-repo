@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-if：if判断-->
+    <!--当v-if为真时创建该标签，为假时不创建该标签-->
+    <!--<p v-if="isIf">v-if为真时，显示该条语句</p>-->
+
+    <!--v-else-->
+    <!--当v-if为假时创建该标签，否则不创建-->
+    <!--该标签前的兄弟标签必须有v-if-->
+    <!--<p v-else>否则显示该条语句</p>-->
+
+    <!--v-else-if-->
+    <!--当v-if不满足条件时，如果存在v-else-if，则执行该语句-->
+    <!--该标签前的兄弟标签同样需要有v-if-->
+    <p v-if="type === 'A'">v-if为A时，显示该条语句</p>
+    <p v-else-if="type === 'B'">v-if为B时，显示该条语句</p>
+    <p v-else>否则显示该条语句</p>
+
+
+
+
+    <!--v-show：切换标签的display-->
+    <!--v-show用于css的display属性，当其为假时，display为none-->
+    <!--注意：v-show与v-if之间的区别在于，v-show即使为假，该标签也已经创建，v-if为假时该标签不创建-->
+    <div v-show="isShow">我显示了</div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            type: 'B',
+            isShow: false
+        }
+
+    })
+</script>
+</body>
+</html>

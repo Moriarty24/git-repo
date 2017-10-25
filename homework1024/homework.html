@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/homework.css">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="top">
+        <div>
+            <img src="img/search.png" alt="">
+        </div>
+        <input type="text" v-model="searchStr" @input="inputed">
+
+    </div>
+
+
+        <div class="list" v-for="value in newNews" >
+            <div class="imgBox">
+                <img :src="value.image" alt="">
+            </div>
+
+            <p class="titleP" v-text="value.title"></p>
+        </div>
+
+
+
+
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            news: [{
+                "title": "What You Need To Know About CSS Variables",
+                "url": "http://tutorialzine.com/2016/03/what-you-need-to-know-about-css-variables/",
+                "image": 'https://tutorialzine.com/media/2016/03/css-variables.jpg'
+            },
+                {
+                    "title": "Freebie: 4 Great Looking Pricing Tables",
+                    "url": "http://tutorialzine.com/2016/02/freebie-4-great-looking-pricing-tables/",
+                    "image": 'https://tutorialzine.com/media/2016/02/great-looking-pricing-tables.jpg'
+                },
+                {
+                    "title": "20 Interesting JavaScript and CSS Libraries for February 2016",
+                    "url": "http://tutorialzine.com/2016/02/20-interesting-javascript-and-css-libraries-for-february-2016/",
+                    "image": 'https://tutorialzine.com/media/2016/02/interesting-resources-february.jpg'
+                },
+                {
+                    "title": "Quick Tip: The Easiest Way To Make Responsive Headers",
+                    "url": "http://tutorialzine.com/2016/02/quick-tip-easiest-way-to-make-responsive-headers/",
+                    "image": 'https://tutorialzine.com/media/2016/02/quick-tip-responsive-headers.png'
+                },
+                {
+                    "title": "Learn SQL In 20 Minutes",
+                    "url": "http://tutorialzine.com/2016/01/learn-sql-in-20-minutes/",
+                    "image": 'https://tutorialzine.com/media/2016/01/learn-sql-20-minutes.png'
+                },
+                {
+                    "title": "Creating Your First Desktop App With HTML, JS and Electron",
+                    "url": "http://tutorialzine.com/2015/12/creating-your-first-desktop-app-with-html-js-and-electron/",
+                    "image": 'https://tutorialzine.com/media/2015/12/creating-your-first-desktop-app-with-electron.png'
+                }],
+            searchStr: '',
+            newNews: []
+        },
+
+//        beforeUpdate: function () {
+//            for (var i = 0; i < this.news.length;i++){
+//                    if (this.news[i].title.search(this.searchStr) != -1 && this.searchStr != ""){
+//
+//                        console.log(this.news[i]);
+//                        this.newNews[i] = this.news[i];
+//                        console.log(this.newNews[0]);
+//                    }
+//                }
+//        },
+
+        methods: {
+            inputed: function () {
+                this.newNews = [];
+                for (var i = 0; i < this.news.length;i++){
+                        var sStr = this.searchStr.toLocaleLowerCase();
+                        var ntS = this.news[i].title.toLocaleLowerCase();
+                        console.log(ntS.search(sStr));
+                      if (ntS.search(sStr) != -1){
+
+                        console.log(this.news[i]);
+                        this.newNews.push(this.news[i]);
+                        console.log(this.newNews);
+
+                    }
+
+                }
+            }
+        }
+
+    })
+</script>
+
+</body>
+</html>

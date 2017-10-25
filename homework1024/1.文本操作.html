@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--1、{{}}：文本插值-->
+    <p>{{message}}</p>
+    <!--2、v-text：赋值给textContent(标签中间的部分)-->
+    <p v-text="message"></p>
+    <!--3、v-html：展示html代码-->
+    <div v-html="html"></div>
+    <!--4、v-bind：单向数据绑定，属性绑定-->
+        <!--缩写："："-->
+    <div :id="box"></div>
+    <!--5、v-model：双向数据绑定-->
+    <input type="text" v-model="username">
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello, Vue.js',
+            html: '<h1>我是一段HTML</h1>',
+            box: 'box',
+            username: ''
+        }
+    })
+</script>
+</body>
+</html>

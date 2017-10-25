@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--v-for：循环渲染-->
+<div id="app">
+    <!--<p v-for="(phonePre,index) in phonePres">{{phonePre.pre}}&nbsp;&nbsp;&nbsp;&nbsp;{{phonePre.name}}{{index}}</p><br>-->
+    <!--<p v-for="(value,index) in phonePres">value：{{value}}&nbsp;&nbsp;&nbsp;&nbsp;index：{{index}}</p><br>-->
+    <!--<h1 v-for="value in student">{{value}}</h1>-->
+    <!--<h1 v-for="(value,key,index) in student">{{key}}:{{value}} - {{index}}</h1>-->
+
+    <!--当某标签添加v-for循环的时候，其子标签可以获取到父标签已经获取到的值-->
+    <div v-for="value,key,index in phonePres">
+        {{value.test}}
+        <p :class="value.test">
+            <a href="" :class="value.test"></a>
+        </p>
+    </div>
+</div>
+
+<script>
+    //v-for既能遍历数组，也能遍历JSon对象
+    //1、遍历的过程都可以获取下标
+    //2、对象遍历获取的内容顺序为value，key，index
+    //3、数组遍历获取的内容顺序为value，index
+    //4、key一般作为唯一标识，在做批量操作时，删除或添加一般通过key进行，或者倒序删除
+    //循环过程中，一般会给元素赋值一个key，key一般代表唯一标识，当数组顺序发生变化时，通过key值可以找到对应元素
+    //实际场景：购物车，某管理系统，数据排序
+    new Vue({
+        el: '#app',
+        data: {
+            phonePres: [
+                {
+                    pre: '+86',
+                    name: '中国',
+                    test: 'asd'
+                },
+
+                {
+                    pre: '+61',
+                    name: '澳大利亚',
+                    test: 'aaa'
+                },
+                {
+                    pre: '+33',
+                    name: '法国',
+                    test: 'ddd'
+                },
+                {
+                    pre: '+1',
+                    name: '美国',
+                    test: 'bbb'
+                }
+
+            ],
+
+            student: {
+                name: '秀念',
+                age: '35',
+                sex: '随机',
+                hobby: '男',
+
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

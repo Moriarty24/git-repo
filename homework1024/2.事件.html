@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<!--v-on：监听事件-->
+<div id="app">
+    <!--事件写法：v-on:事件名="方法名"-->
+    <button v-on:click="clicked">点击</button>
+
+    <!--事件简易写法：@事件名-->
+    <button @click="clicked">点击</button>
+
+    <!--触发点击事件同时阻止事件冒泡-->
+    <!--可以使用简易写法-->
+    <button v-on:click.stop="clicked">点击</button>
+
+    <!--多个事件合并写法v-on="{事件名1：方法名1，事件名2：方法名2……}"-->
+    <!--合并写法时，不能使用@简易写法-->
+    <button v-on="{click:clicked,mouseenter:mouseEntered}">点击</button>
+
+    <!--监听keycode对应的事件-->
+    <!--除了可以通过键代码，也可通过键别名的形式，如：@keyup.enter="onEnter"-->
+    <input type="text" @keyup.13="onEnter" ref="userInput">
+
+    <!--内联语句，触发事件会执行，前的部分-->
+    <button v-on:click="doThat('hello', $event)">1</button>
+
+
+
+
+
+</div>
+
+<script type="application/javascript">
+    //获取正在发生事件的标签：
+    //1、通过event.target
+    //2、ref属性
+    //通过this.$refs.变量名获取
+    //this指代当前的vue实例，属于其的属性前要加$
+    new Vue({
+        el: '#app',
+        methods: {
+            clicked: function () {
+                console.log("触发点击事件");
+            },
+
+            mouseEntered: function () {
+                console.log("触发鼠标移入事件");
+            },
+
+            onEnter: function (event) {
+                console.log("回车");
+            },
+
+            doThat: function (event) {
+                console.log(event);
+            }
+        }
+    })
+</script>
+</body>
+</html>
