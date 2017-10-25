@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #app{
+            width: 300px;
+            height: 500px;
+            background-color: #7cc7e2;
+            margin: 0 auto;
+        }
+
+        .all{
+            margin-bottom: 10px;
+            padding: 10px;
+        }
+
+        .pricePri{
+            margin-right: 80px;
+        }
+
+        .all button{
+            width: 20px;
+            height: 20px;
+            background-color: #00c148;
+        }
+
+        .priceNum{
+            vertical-align: middle;
+        }
+
+        #app p{
+            margin-top: 330px;
+            font-size: 25px;
+            margin-left: 100px;
+        }
+    </style>
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <shop-cart @shop-total="totaled"></shop-cart>
+        <p>总价：{{total}}</p>
+    </div>
+
+<script>
+    Vue.component('shop-cart',{
+        template: `
+                <div>
+                    <div class="all" v-for="priNum,index in priNums">
+                        <span class="pricePri">单价：{{priNum.price}}</span>
+                        <button class="btn1" @click="downClick(index)">-</button>
+                        <span class="priceNum">数量：{{priNum.number}}</span>
+                        <button class="btn2" @click="upClick(index)">+</button>
+                    </div>
+                </div>
+        `,
+
+        data: function () {
+            return {
+                priNums: [
+                    {
+                        price: 100,
+                        number: 0
+                    },
+                    {
+                        price: 200,
+                        number: 0
+                    }
+                ]
+            }
+        },
+
+        methods: {
+            downClick: function (index) {
+                    if (this.priNums[index].number <= 0){
+                        this.priNums[index].number = 0;
+                        return;
+                    }
+                        this.priNums[index].number --;
+
+                        this.$emit('shop-total',this.priNums);
+
+
+
+
+
+            },
+
+            upClick: function (index) {
+
+                this.priNums[index].number ++;
+                this.$emit('shop-total',this.priNums);
+
+            }
+        }
+
+    })
+
+    new Vue({
+        el: '#app',
+        data: {
+            total: '0'
+        },
+
+        methods: {
+            totaled: function (priNums) {
+//                this.total = priNums[0].price * priNums[0].number + priNums[1].price * priNums[1].number;
+//                console.log(priNums);
+//                console.log(total);
+                var sum = 0;
+                for (var i = 0; i < priNums.length; i++){
+                    sum += priNums[i].price * priNums[i].number;
+                }
+                this.total = sum;
+
+            }
+        }
+
+
+    })
+
+</script>
+</body>
+</html>
